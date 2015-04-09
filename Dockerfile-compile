@@ -1,0 +1,10 @@
+FROM buildpack-deps:jessie
+
+RUN apt-get update -y \
+  && apt-get install --no-install-recommends -y -q \
+    build-essential g++ flex bison gperf ruby perl \
+    libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev \
+    libpng-dev libjpeg-dev git
+
+WORKDIR phantomjs
+COPY compile.sh compile.sh
